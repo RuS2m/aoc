@@ -75,14 +75,14 @@ fn sum_of_numbers_after_line(
     (numbers_sum_after_line, cur_line_indices_to_numbers, cur_line_symbols_locations)
 }
 
-pub fn solve(input: Vec<String>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
     let part1_result = part1(&input);
     let part2_result = part2(&input);
 
     Ok((part1_result, part2_result))
 }
 
-pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part1(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     let mut prev_line_indices_to_numbers: HashMap<i64, i64> = HashMap::new();
     let mut prev_line_symbols_locations: HashSet<i64> = HashSet::new();
     let numbers_adjacent_to_symbol_sum = input.iter()
@@ -99,6 +99,6 @@ pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
 }
 
 #[allow(unused_variables)]
-pub fn part2(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part2(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     Err(NotImplementedErrorType)
 }

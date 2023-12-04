@@ -69,14 +69,14 @@ fn cube_combination_values(cube_description: &str) -> (i64, i64, i64) {
     }
 }
 
-pub fn solve(input: Vec<String>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
     let part1_result = part1(&input);
     let part2_result = part2(&input);
 
     Ok((part1_result, part2_result))
 }
 
-pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part1(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     let sum = input.iter()
         .map(|x| game_id_if_valid(x))
         .sum::<i64>();
@@ -84,7 +84,7 @@ pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
     Ok(sum.to_string())
 }
 
-pub fn part2(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part2(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     let sum = input.iter()
         .map(|x| power_of_minimum_set(x))
         .sum::<i64>();
@@ -99,11 +99,11 @@ mod tests {
     #[test]
     fn test_2023_day2_part1_example() {
         let input = vec![
-            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green".to_string(),
-            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue".to_string(),
-            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red".to_string(),
-            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red".to_string(),
-            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green".to_string(),
+            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
+            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
+            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red",
+            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
+            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green",
         ];
     
         let result = part1(&input).expect("Failed to solve part 1 example of day 1");
@@ -114,11 +114,11 @@ mod tests {
     #[test]
     fn test_2023_day2_part2_example() {
         let input = vec![
-            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green".to_string(),
-            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue".to_string(),
-            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red".to_string(),
-            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red".to_string(),
-            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green".to_string(),
+            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
+            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
+            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red",
+            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
+            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green",
         ];
     
         let result = part2(&input).expect("Failed to solve part 2 example of day 1");
@@ -131,9 +131,7 @@ mod tests {
          let file_content = fs::read_to_string("resources/2023-02.txt")
              .expect("Failed to read file");
     
-         let input: Vec<String> = file_content.lines()
-             .map(|line| line.to_string())
-             .collect();
+         let input: Vec<&str> = file_content.lines().collect();
     
         let (answer1, answer2) = solve(input).expect("Failed to solve input of day 1");
         

@@ -18,23 +18,24 @@ fn main() {
     let formatted_day = format!("{:02}", day.parse::<u32>().expect("Invalid day format"));
     let filename = format!("resources/{}-{}.txt", year, formatted_day);
 
-    let input = fs::read_to_string(filename)
-        .expect("Failed to read file")
+    let binding = fs::read_to_string(filename)
+        .expect("Failed to read file");
+    let input = binding
         .lines()
-        .map(|s| s.to_string())
         .collect();
 
     match (year, day) {
         ("2023", "1") => run_solution(_2023::day1::solve, &input),
         ("2023", "2") => run_solution(_2023::day2::solve, &input),
         ("2023", "3") => run_solution(_2023::day3::solve, &input),
+        ("2023", "4") => run_solution(_2023::day4::solve, &input),
          _ => eprintln!("Invalid year/day combination"),
     }
 }
 
-fn run_solution<F, E>(solve_fn: F, input: &Vec<String>)
+fn run_solution<F, E>(solve_fn: F, input: &Vec<&str>)
 where
-    F: Fn(Vec<String>) -> Result<(Result<String, E>, Result<String, E>), E>,
+    F: Fn(Vec<&str>) -> Result<(Result<String, E>, Result<String, E>), E>,
     E: std::fmt::Display + std::fmt::Debug,
 {
     let start = Instant::now();

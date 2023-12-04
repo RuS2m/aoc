@@ -67,14 +67,14 @@ fn first_and_last_spelled_digit_number(line: &str) -> i64 {
     return first_digit*10 + last_digit;
 }
 
-pub fn solve(input: Vec<String>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
     let part1_result = part1(&input);
     let part2_result = part2(&input);
 
     Ok((part1_result, part2_result))
 }
 
-pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part1(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     let sum = input.iter()
         .map(|x| first_and_last_digit_number(x))
         .sum::<i64>();
@@ -82,7 +82,7 @@ pub fn part1(input: &[String]) -> Result<String, NotImplementedErrorType> {
     Ok(sum.to_string())
 }
 
-pub fn part2(input: &[String]) -> Result<String, NotImplementedErrorType> {
+pub fn part2(input: &[&str]) -> Result<String, NotImplementedErrorType> {
     let sum = input.iter()
         .map(|x| first_and_last_spelled_digit_number(x))
         .sum::<i64>();
@@ -97,10 +97,10 @@ mod tests {
     #[test]
     fn test_2023_day1_part1_example() {
         let input = vec![
-            "1abc2".to_string(),
-            "pqr3stu8vwx".to_string(),
-            "a1b2c3d4e5f".to_string(),
-            "treb7uchet".to_string(),
+            "1abc2",
+            "pqr3stu8vwx",
+            "a1b2c3d4e5f",
+            "treb7uchet",
         ];
     
         let result = part1(&input).expect("Failed to solve part 1 example of day 1");
@@ -111,13 +111,13 @@ mod tests {
     #[test]
     fn test_2023_day1_part2_example() {
         let input = vec![
-            "two1nine".to_string(),
-            "eightwothree".to_string(),
-            "abcone2threexyz".to_string(),
-            "xtwone3four".to_string(),
-            "4nineeightseven2".to_string(),
-            "zoneight234".to_string(),
-            "7pqrstsixteen".to_string(),
+            "two1nine",
+            "eightwothree",
+            "abcone2threexyz",
+            "xtwone3four",
+            "4nineeightseven2",
+            "zoneight234",
+            "7pqrstsixteen",
         ];
     
         let result = part2(&input).expect("Failed to solve part 2 example of day 1");
@@ -130,9 +130,7 @@ mod tests {
          let file_content = fs::read_to_string("resources/2023-01.txt")
              .expect("Failed to read file");
     
-         let input: Vec<String> = file_content.lines()
-             .map(|line| line.to_string())
-             .collect();
+         let input: Vec<&str> = file_content.lines().collect();
     
         let (answer1, answer2) = solve(input).expect("Failed to solve input of day 1");
         
