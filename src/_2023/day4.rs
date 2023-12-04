@@ -5,7 +5,7 @@ pub fn solve(input: Vec<String>) -> Result<(Result<String, NotImplementedErrorTy
     let part1_result = part1(&input);
     let part2_result = part2(&input);
 
-    Ok((part1_result, part2_result))
+    Err(NotImplementedErrorType)
 }
 
 #[allow(dead_code)]
