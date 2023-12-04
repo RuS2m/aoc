@@ -1,0 +1,15 @@
+[package]
+name = "aoc"
+version = "0.1.0"
+edition = "2021"
+authors = [
+  "RuS2m"
+]
+
+[dependencies]
+lazy_static = "1.4"
+clap = "3.0"
+
+[[bin]]
+name = "aoc"
+path = "src/main.rs"
