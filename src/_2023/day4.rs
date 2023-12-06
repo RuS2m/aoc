@@ -3,9 +3,9 @@ use regex::Regex;
 use std::collections::HashSet;
 use std::fs::read_to_string;
 
-pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
-    let part1_result = part1(&input);
-    let part2_result = part2(&input);
+pub fn solve(input: &Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+    let part1_result = part1(input);
+    let part2_result = part2(input);
 
     Ok((part1_result, part2_result))
 }
@@ -102,7 +102,7 @@ mod tests {
     
          let input: Vec<&str> = file_content.lines().collect();
     
-        let (answer1, answer2) = solve(input).expect("Failed to solve input of day 4");
+        let (answer1, answer2) = solve(&input).expect("Failed to solve input of day 4");
         
         assert_eq!(answer1.unwrap(), "26346".to_string());
         assert_eq!(answer2.unwrap(), "8467762".to_string());

@@ -35,11 +35,11 @@ fn main() {
 
 fn run_solution<F, E>(solve_fn: F, input: &Vec<&str>)
 where
-    F: Fn(Vec<&str>) -> Result<(Result<String, E>, Result<String, E>), E>,
+    F: Fn(&Vec<&str>) -> Result<(Result<String, E>, Result<String, E>), E>,
     E: std::fmt::Display + std::fmt::Debug,
 {
     let start = Instant::now();
-    let solution = solve_fn(input.clone());
+    let solution = solve_fn(input);
     let duration = start.elapsed();
 
     match solution {

@@ -67,9 +67,9 @@ fn first_and_last_spelled_digit_number(line: &str) -> i64 {
     return first_digit*10 + last_digit;
 }
 
-pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
-    let part1_result = part1(&input);
-    let part2_result = part2(&input);
+pub fn solve(input: &Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+    let part1_result = part1(input);
+    let part2_result = part2(input);
 
     Ok((part1_result, part2_result))
 }
@@ -132,7 +132,7 @@ mod tests {
     
          let input: Vec<&str> = file_content.lines().collect();
     
-        let (answer1, answer2) = solve(input).expect("Failed to solve input of day 1");
+        let (answer1, answer2) = solve(&input).expect("Failed to solve input of day 1");
         
         assert_eq!(answer1.unwrap(), "53334".to_string());
         assert_eq!(answer2.unwrap(), "52834".to_string());

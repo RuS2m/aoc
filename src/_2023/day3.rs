@@ -75,9 +75,9 @@ fn sum_of_numbers_after_line(
     (numbers_sum_after_line, cur_line_indices_to_numbers, cur_line_symbols_locations)
 }
 
-pub fn solve(input: Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
-    let part1_result = part1(&input);
-    let part2_result = part2(&input);
+pub fn solve(input: &Vec<&str>) -> Result<(Result<String, NotImplementedErrorType>, Result<String, NotImplementedErrorType>), NotImplementedErrorType> {
+    let part1_result = part1(input);
+    let part2_result = part2(input);
 
     Ok((part1_result, part2_result))
 }
