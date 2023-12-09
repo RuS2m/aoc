@@ -13,3 +13,4 @@ However I'm trying to improve in this language, so the longer this project exist
 - [Day 4: Scratchcards](src/_2023/day4.rs)
 - [Day 5: If You Give A Seed A Fertilizer](src/_2023/day5.rs)
 - [Day 6: Wait For It](src/_2023/day6.rs)
+- [Day 7: Camel Cards](src/_2023/day7.rs)

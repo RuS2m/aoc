@@ -31,6 +31,7 @@ fn main() {
         ("2023", "4") => run_solution(_2023::day4::solve, &input),
         ("2023", "5") => run_solution(_2023::day5::solve, &input),
         ("2023", "6") => run_solution(_2023::day6::solve, &input),
+        ("2023", "7") => run_solution(_2023::day7::solve, &input),
          _ => eprintln!("Invalid year/day combination"),
     }
 }
