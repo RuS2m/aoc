@@ -68,6 +68,7 @@ fn run_through_transformation_pipeline<T>(input: &[&str], seeds: &mut Vec<T>, tr
     transform_seeds_fun(seeds, &seeds_mappings);
 }
 
+#[allow(unused_variables)]
 fn transform_seed_chunks(seed_chunks: &mut Vec<(i64, i64)>, seeds_mappings: &BTreeMap<i64, (i64, i64)>) {
     // Do nothing
 }
@@ -194,7 +195,7 @@ mod tests {
     
          let input: Vec<&str> = file_content.lines().collect();
     
-        let (answer1, answer2) = solve(&input).expect("Failed to solve input of day 5");
+        let (answer1, _) = solve(&input).expect("Failed to solve input of day 5");
         
         assert_eq!(answer1.unwrap(), "199602917".to_string());
     }
