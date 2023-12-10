@@ -1,4 +1,4 @@
-name: 2023
+name: 2023 tests
 
 on:
   workflow_dispatch:

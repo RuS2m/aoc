@@ -1,4 +1,4 @@
-name: bin
+name: all tests
 
 on:
   push:
